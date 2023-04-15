@@ -25,6 +25,8 @@ public class InvoiceRest {
 
     @Autowired
     InvoiceService invoiceService;
+
+    // -------------------Retrieve All Invoices--------------------------------------------
     @GetMapping
     public ResponseEntity<List<Invoice>> listAllInvoices() {
         List<Invoice> invoices = invoiceService.findInvoiceAll();
@@ -33,6 +35,8 @@ public class InvoiceRest {
         }
         return  ResponseEntity.ok(invoices);
     }
+
+    // -------------------Retrieve Single Invoice------------------------------------------
     @GetMapping(value = "/{id}")
     public ResponseEntity<Invoice> getInvoice(@PathVariable("id") long id) {
         log.info("Fetching Invoice with id {}", id);
@@ -43,6 +47,8 @@ public class InvoiceRest {
         }
         return  ResponseEntity.ok(invoice);
     }
+
+    // -------------------Create a Invoice-------------------------------------------
     @PostMapping
     public ResponseEntity<Invoice> createInvoice(@Valid @RequestBody Invoice invoice, BindingResult result) {
         log.info("Creating Invoice : {}", invoice);
@@ -53,6 +59,8 @@ public class InvoiceRest {
 
         return  ResponseEntity.status( HttpStatus.CREATED).body(invoiceDB);
     }
+
+    // ------------------- Update a Invoice ------------------------------------------------
     @PutMapping(value = "/{id}")
     public ResponseEntity<?> updateInvoice(@PathVariable("id") long id, @RequestBody Invoice invoice) {
         log.info("Updating Invoice with id {}", id);
@@ -66,6 +74,8 @@ public class InvoiceRest {
         }
         return  ResponseEntity.ok(currentInvoice);
     }
+
+    // ------------------- Delete a Invoice-----------------------------------------
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Invoice> deleteInvoice(@PathVariable("id") long id) {
         log.info("Fetching & Deleting Invoice with id {}", id);

@@ -9,4 +9,5 @@ class ServiceProductApplicationTests {
 	@Test
 	void contextLoads() {
 	}
+
 }

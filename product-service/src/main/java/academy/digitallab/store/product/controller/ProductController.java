@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 public class ProductController {
 
     @Autowired
-    private ProductService productService;
+    private ProductService productService ;
 
     @GetMapping
     public ResponseEntity<List<Product>> listProduct(@RequestParam(name = "categoryId", required = false) Long categoryId){
@@ -41,6 +41,8 @@ public class ProductController {
                 return ResponseEntity.notFound().build();
             }
         }
+
+
         return ResponseEntity.ok(products);
     }
 

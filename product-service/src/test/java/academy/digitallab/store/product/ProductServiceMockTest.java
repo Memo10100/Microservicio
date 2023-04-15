@@ -20,6 +20,7 @@ public class ProductServiceMockTest {
 
     @Mock
     private ProductRepository productRepository;
+
     private ProductService productService;
 
     @BeforeEach
@@ -33,6 +34,7 @@ public class ProductServiceMockTest {
                 .price(Double.parseDouble("12.5"))
                 .stock(Double.parseDouble("5"))
                 .build();
+
         Mockito.when(productRepository.findById(1L))
                 .thenReturn(Optional.of(computer));
         Mockito.when(productRepository.save(computer)).thenReturn(computer);
@@ -43,6 +45,7 @@ public class ProductServiceMockTest {
    public void whenValidGetID_ThenReturnProduct(){
         Product found = productService.getProduct(1L);
        Assertions.assertThat(found.getName()).isEqualTo("computer");
+
    }
 
    @Test

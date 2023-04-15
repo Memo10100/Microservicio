@@ -15,4 +15,6 @@ public class Region implements Serializable {
 	private Long id;
 	private String name;
 
+
+
 }

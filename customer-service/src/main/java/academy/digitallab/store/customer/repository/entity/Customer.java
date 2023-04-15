@@ -40,6 +40,7 @@ public class Customer implements Serializable {
     @Column(name="photo_url")
     private String photoUrl;
 
+
     @NotNull(message = "la región no puede ser vacia")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "region_id")

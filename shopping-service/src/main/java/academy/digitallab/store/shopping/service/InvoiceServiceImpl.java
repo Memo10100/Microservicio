@@ -25,6 +25,7 @@ public class InvoiceServiceImpl implements InvoiceService {
         return  invoiceRepository.findAll();
     }
 
+
     @Override
     public Invoice createInvoice(Invoice invoice) {
         Invoice invoiceDB = invoiceRepository.findByNumberInvoice ( invoice.getNumberInvoice () );
@@ -34,6 +35,7 @@ public class InvoiceServiceImpl implements InvoiceService {
         invoice.setState("CREATED");
         return invoiceRepository.save(invoice);
     }
+
 
     @Override
     public Invoice updateInvoice(Invoice invoice) {
@@ -48,6 +50,7 @@ public class InvoiceServiceImpl implements InvoiceService {
         invoiceDB.setItems(invoice.getItems());
         return invoiceRepository.save(invoiceDB);
     }
+
 
     @Override
     public Invoice deleteInvoice(Invoice invoice) {
