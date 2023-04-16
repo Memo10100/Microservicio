@@ -10,6 +10,7 @@ spring:
           searchPaths: config-data
           username: ${GIT_USER}
           password: ${GIT_PASSWORD}
+          default-label: "02_refactor_code_config"
   security:
     user:
       name: root
